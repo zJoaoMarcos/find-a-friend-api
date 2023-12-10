@@ -11,7 +11,36 @@ datasource db {
 }
 
 model Pet {
-  id   String @id @default(uuid())
-  name String
-  age  String
+  id                        String       @id @default(uuid())
+  name                      String
+  about                     String
+  age                       String
+  size                      String
+  level_of_independence     Int
+  photos                    String[]
+  environment               String
+  requirements_for_adoption String[]
+  organization_id           Organization @relation(fields: [organizationId], references: [id])
+  organizationId            String
+
+  @@map("pet")
+}
+
+model Organization {
+  id                 String  @id @default(uuid())
+  responsible_name   String
+  email              String
+  name               String
+  description        String
+  cell_number        String
+  adress             String
+  adress_number      String
+  city               String
+  state              String
+  zip_code           String
+  adresss_complement String?
+  password           String
+  Pet                Pet[]
+
+  @@map("organization")
 }
