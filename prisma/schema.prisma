@@ -27,20 +27,20 @@ model Pet {
 }
 
 model Organization {
-  id                 String  @id @default(uuid())
-  responsible_name   String
-  email              String
-  name               String
-  description        String
-  cell_number        String
-  adress             String
-  adress_number      String
-  city               String
-  state              String
-  zip_code           String
-  adresss_complement String?
-  password           String
-  Pet                Pet[]
+  id                  String  @id @default(uuid())
+  responsible_name    String
+  email               String  @unique
+  name                String
+  description         String
+  cell_number         String
+  address             String
+  address_number      String
+  city                String
+  state               String
+  zip_code            String
+  addresss_complement String?
+  password            String
+  Pet                 Pet[]
 
   @@map("organization")
 }
