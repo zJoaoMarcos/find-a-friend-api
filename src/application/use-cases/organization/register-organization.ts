@@ -1,4 +1,7 @@
 import { IOrganizationRepository } from '@/application/repositories/organization.repository'
+import { OrganizationAlreadyExistsError } from './errors/organization-already-exists.error'
+
+import * as bcrypt from 'bcrypt'
 
 interface RegisterOrganizationUseCaseRequest {
   responsibleName: string
@@ -32,10 +35,30 @@ export class RegisterOrganizationUseCase {
     state,
     zipCode,
   }: RegisterOrganizationUseCaseRequest) {
-    const organization = await this.organizationRepository.findByEmail(email)
+    const organizationExists =
+      await this.organizationRepository.findByEmail(email)
 
-    if (!organization) {
-      throw new Error()
+    if (organizationExists) {
+      throw new OrganizationAlreadyExistsError()
     }
+
+    const passwordHashed = await bcrypt.hash(password, 10)
+
+    const organization = {
+      responsible_name: responsibleName,
+      name,
+      email,
+      password: passwordHashed,
+      description,
+      cell_number: cellNumber,
+      address,
+      address_number: addressNumber,
+      address_complement: addressComplement,
+      city,
+      state,
+      zip_code: zipCode,
+    }
+
+    await this.organizationRepository.create(organization)
   }
 }
