@@ -1,0 +1,18 @@
+# @name register-organizations
+POST http://localhost:3030/org
+Content-Type: application/json
+
+{
+   "responsibleName": "Jonas",
+    "email": "jonas@email.com",
+    "password": "Patr4318*",
+    "name": "Doguinhos do amor",
+    "description": "adotamos doguinhos para vc adotar companheiros de 4 patas",
+    "cellNumber": "11 984985656",
+    "address": "Rua Arthur Rubens del Cid",
+    "addressNumber": "101",
+    "addressComplement": "casa",
+    "city": "São Caetano do Sul",
+    "state": "São Paulo",
+    "zipCode": "09520250"
+}
