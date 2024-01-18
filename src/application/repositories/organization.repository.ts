@@ -4,4 +4,5 @@ export interface IOrganizationRepository {
   create(organization: Prisma.OrganizationCreateInput): Promise<void>
   save(organization: Prisma.OrganizationUpdateInput): Promise<void>
   findByEmail(email: string): Promise<Organization | null>
+  findById(id: string): Promise<Organization | null>
 }

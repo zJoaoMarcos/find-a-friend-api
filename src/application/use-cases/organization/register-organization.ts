@@ -38,9 +38,7 @@ export class RegisterOrganizationUseCase {
     const organizationExists =
       await this.organizationRepository.findByEmail(email)
 
-    if (organizationExists) {
-      throw new OrganizationAlreadyExistsError()
-    }
+    if (organizationExists) throw new OrganizationAlreadyExistsError()
 
     const passwordHashed = await bcrypt.hash(password, 10)
 

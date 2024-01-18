@@ -35,4 +35,16 @@ export class PrismaOrganizationRepository implements IOrganizationRepository {
 
     return organization
   }
+
+  async findById(id: string): Promise<Organization | null> {
+    const organization = await this.prismaService.organization.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    if (!organization) return null
+
+    return organization
+  }
 }
