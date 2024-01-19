@@ -34,7 +34,7 @@ export class PrismaPetRepository implements IPetRepository {
 
     if (city)
       $params.where = {
-        organizationId: city,
+        organization_id: city,
       }
     if (age) $params.where = { age }
     if (name) $params.where = { name }
