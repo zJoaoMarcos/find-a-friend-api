@@ -1,6 +1,10 @@
-import { IPetRepository } from '@/application/repositories/pet.repository'
+import {
+  IPetFindManyQuery,
+  IPetRepository,
+} from '@/application/repositories/pet.repository'
 import { Pet, Prisma } from '@prisma/client'
 import { PrismaService } from '../prisma'
+import { DefaultArgs } from '@prisma/client/runtime/library'
 
 export class PrismaPetRepository implements IPetRepository {
   constructor(private prismaService: typeof PrismaService) {}
@@ -24,10 +28,25 @@ export class PrismaPetRepository implements IPetRepository {
     })
   }
 
-  async findMany(params: Prisma.PetFindManyArgs): Promise<Pet[] | null> {
-    const pets = await this.prismaService.pet.findMany({
-      ...params,
-    })
+  async findMany(params: IPetFindManyQuery): Promise<Pet[] | null> {
+    const { age, city, levelOfIndependence, name, orderBy, size } = params
+    const $params: Prisma.PetFindManyArgs = {}
+
+    if (city)
+      $params.where = {
+        organizationId: city,
+      }
+    if (age) $params.where = { age }
+    if (name) $params.where = { name }
+    if (size) $params.where = { size }
+    if (levelOfIndependence)
+      $params.where = { level_of_independence: levelOfIndependence }
+    if (orderBy)
+      $params.orderBy = {
+        age: orderBy,
+      }
+
+    const pets = await this.prismaService.pet.findMany({ ...$params })
 
     if (!pets) return null
 
