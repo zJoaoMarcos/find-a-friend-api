@@ -30,12 +30,13 @@ export class PrismaPetRepository implements IPetRepository {
 
   async findMany(params: IPetFindManyQuery): Promise<Pet[] | null> {
     const { age, city, levelOfIndependence, name, orderBy, size } = params
+
     const $params: Prisma.PetFindManyArgs = {}
 
-    if (city)
-      $params.where = {
-        organization_id: city,
-      }
+    $params.where = {
+      organization_id: city,
+    }
+
     if (age) $params.where = { age }
     if (name) $params.where = { name }
     if (size) $params.where = { size }
@@ -43,7 +44,7 @@ export class PrismaPetRepository implements IPetRepository {
       $params.where = { level_of_independence: levelOfIndependence }
     if (orderBy)
       $params.orderBy = {
-        age: orderBy,
+        ...orderBy,
       }
 
     const pets = await this.prismaService.pet.findMany({ ...$params })

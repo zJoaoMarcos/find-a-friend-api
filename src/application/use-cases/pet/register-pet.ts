@@ -45,7 +45,7 @@ export class RegisterPetUseCase {
       photos,
       environment,
       requirements_for_adoption: requirementsForAdoption,
-      organizationId,
+      organization_id: organizationId,
     }
 
     await this.petRepository.create(pet)

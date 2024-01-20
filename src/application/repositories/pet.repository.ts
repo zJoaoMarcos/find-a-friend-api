@@ -1,13 +1,16 @@
 import { Pet, Prisma } from '@prisma/client'
 
 export interface IPetFindManyQuery {
-  city?: string
+  city: string
   name?: string
   age?: string
   size?: string
   levelOfIndependence?: number
   environment?: string
-  orderBy?: 'asc' | 'desc'
+  orderBy?: {
+    levelOfIndependence?: 'asc' | 'desc'
+    age?: 'asc' | 'desc'
+  }
 }
 
 export interface IPetRepository {

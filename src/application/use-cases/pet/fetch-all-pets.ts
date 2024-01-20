@@ -4,18 +4,12 @@ import {
 } from '@/application/repositories/pet.repository'
 import { PetNotFoundError } from './errors/pet-not-found.error'
 
-interface FetchAllPetsUseCaseRequest {
-  params: IPetFindManyQuery
-}
-
-/* interface FetchAllPetsUseCaseResponse {
-  
-} */
+type FetchAllPetsUseCaseRequest = IPetFindManyQuery
 
 export class FetchAllPetsUseCase {
   constructor(private petRepository: IPetRepository) {}
 
-  async execute({ params }: FetchAllPetsUseCaseRequest) {
+  async execute(params: FetchAllPetsUseCaseRequest) {
     const pets = await this.petRepository.findMany(params)
 
     if (!pets) throw new PetNotFoundError()
