@@ -24,7 +24,14 @@ export async function authenticateOrganization(
       password,
     })
 
-    reply.status(200).send(organization)
+    const token = await reply.jwtSign(
+      {},
+      {
+        sub: organization.id,
+      },
+    )
+
+    reply.status(200).send({ token })
   } catch (err) {
     console.log(err)
     reply.status(500).send(err)
