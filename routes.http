@@ -1,5 +1,14 @@
-# @name register-organizations
-POST http://localhost:3030/org
+### @name authenticate
+POST http://localhost:3333/org/auth
+Content-Type: application/json
+
+{
+    "email": "jonas@email.com",
+    "password": "Patr4318*"
+}
+
+### @name register-organizations
+POST http://localhost:3333/org
 Content-Type: application/json
 
 {
