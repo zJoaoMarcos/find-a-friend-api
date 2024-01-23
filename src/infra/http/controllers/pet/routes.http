@@ -14,7 +14,6 @@ Content-Type: application/json
 
 ###
 # @name register-pet
-
 POST {{baseUrl}}/pets
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
@@ -30,3 +29,13 @@ Authorization: Bearer {{authToken}}
   "requirementsForAdoption": ["string"],
   "organizationId": "string"
 }
+
+###
+# @name fetch-pets-by-city
+GET {{baseUrl}}/pets/santo-andré
+Content-Type: application/json
+
+###
+# @name get-pet-by-id
+GET {{baseUrl}}/pets/id/pet
+Content-Type: application/json
