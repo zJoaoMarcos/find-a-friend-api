@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:3333
+
+@authToken = {{authenticate.response.body.token}}
+
+###
+# @name authenticate
+POST {{baseUrl}}/orgs/auth
+Content-Type: application/json
+
+{
+    "email": "jonas@email.com",
+    "password": "Patr4318*"
+}
+
+###
+# @name register-pet
+
+POST {{baseUrl}}/pets
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "string",
+  "about": "string",
+  "age": "string",
+  "size": "string",
+  "levelOfIndependence": 2,
+  "photos": ["string"],
+  "environment": "string",
+  "requirementsForAdoption": ["string"],
+  "organizationId": "string"
+}

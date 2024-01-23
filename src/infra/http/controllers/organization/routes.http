@@ -1,5 +1,10 @@
-### @name authenticate
-POST http://localhost:3333/org/auth
+@baseUrl = http://localhost:3333
+
+@authToken = {{authenticate.response.body.token}}
+
+###
+# @name authenticate
+POST {{baseUrl}}/orgs/auth
 Content-Type: application/json
 
 {
@@ -7,8 +12,15 @@ Content-Type: application/json
     "password": "Patr4318*"
 }
 
-### @name register-organizations
-POST http://localhost:3333/org
+###
+# @name org-profile
+GET {{baseUrl}}/orgs/me
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+# @name register-organizations
+POST {{baseUrl}}/orgs
 Content-Type: application/json
 
 {
