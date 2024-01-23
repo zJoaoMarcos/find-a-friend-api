@@ -4,7 +4,6 @@ import {
 } from '@/application/repositories/pet.repository'
 import { Pet, Prisma } from '@prisma/client'
 import { PrismaService } from '../prisma'
-import { DefaultArgs } from '@prisma/client/runtime/library'
 
 export class PrismaPetRepository implements IPetRepository {
   constructor(private prismaService: typeof PrismaService) {}

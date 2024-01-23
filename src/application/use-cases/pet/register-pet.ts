@@ -46,6 +46,7 @@ export class RegisterPetUseCase {
       environment,
       requirements_for_adoption: requirementsForAdoption,
       organization_id: organizationId,
+      status: 'available',
     }
 
     await this.petRepository.create(pet)

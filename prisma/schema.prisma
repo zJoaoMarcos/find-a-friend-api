@@ -20,6 +20,7 @@ model Pet {
   photos                    String[]
   environment               String
   requirements_for_adoption String[]
+  status                    String
 
   organizationId  Organization @relation(fields: [organization_id], references: [id])
   organization_id String

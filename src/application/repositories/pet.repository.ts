@@ -7,9 +7,11 @@ export interface IPetFindManyQuery {
   size?: string
   levelOfIndependence?: number
   environment?: string
+  status?: 'available' | 'adopted' | 'in progress'
   orderBy?: {
     levelOfIndependence?: 'asc' | 'desc'
     age?: 'asc' | 'desc'
+    status?: 'asc' | 'desc'
   }
 }
 
