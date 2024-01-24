@@ -31,10 +31,10 @@ export class RegisterPetUseCase {
     requirementsForAdoption,
     organizationId,
   }: RegisterPetUseCaseRequest) {
-    const organizationExists =
+    const organization =
       await this.organizationRepository.findById(organizationId)
 
-    if (!organizationExists) throw new OrganizationNotFoundError()
+    if (!organization) throw new OrganizationNotFoundError()
 
     const pet = {
       name,
@@ -47,8 +47,13 @@ export class RegisterPetUseCase {
       requirements_for_adoption: requirementsForAdoption,
       organization_id: organizationId,
       status: 'available',
+      city: organization.city,
     }
 
     await this.petRepository.create(pet)
+
+    return {
+      pet,
+    }
   }
 }
