@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma" : {
+    "seed": "tsx prisma/seed/index.ts"
+  },
   "dependencies": {
     "@fastify/jwt": "8.0.0",
     "@prisma/client": "5.6.0",
