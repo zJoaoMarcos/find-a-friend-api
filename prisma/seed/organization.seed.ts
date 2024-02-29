@@ -1,5 +1,6 @@
 export const organizationSeed = [
   {
+    id: '0846dec1-6728-41c8-9e8f-c1b577604f16',
     responsible_name: 'João Silva',
     email: 'joao@email.com',
     name: 'Amigos dos Pets',
@@ -14,6 +15,7 @@ export const organizationSeed = [
     password: 'senha_amigos123',
   },
   {
+    id: '373612f0-f8f2-434c-b38d-41c9ffba8543',
     responsible_name: 'Maria Oliveira',
     email: 'maria@email.com',
     name: 'Cães e Gatos para Sempre',
@@ -27,6 +29,7 @@ export const organizationSeed = [
     password: 'senha_forever456',
   },
   {
+    id: 'b97a1d4b-5907-449f-bb14-3c2a9f39efcf',
     responsible_name: 'Carlos Rodrigues',
     email: 'carlos@email.com',
     name: 'Patas Solidárias',
@@ -40,6 +43,7 @@ export const organizationSeed = [
     password: 'senha_solidarias789',
   },
   {
+    id: 'd0334ae9-98dd-4dd5-8e7e-41924e55d403',
     responsible_name: 'Ana Santos',
     email: 'ana@email.com',
     name: 'Protetores de Patinhas',
@@ -54,6 +58,7 @@ export const organizationSeed = [
     password: 'senha_patinhas432',
   },
   {
+    id: 'd083442f-9234-4511-978b-45d9d38efe2f',
     responsible_name: 'Fernanda Lima',
     email: 'fernanda@email.com',
     name: 'Adoção com Amor',
@@ -68,6 +73,7 @@ export const organizationSeed = [
     password: 'senha_amorosa567',
   },
   {
+    id: 'd3e3a627-7c96-48ba-bda7-6859c78367db',
     responsible_name: 'Ricardo Souza',
     email: 'ricardo@email.com',
     name: 'Resgate Animal',
@@ -82,6 +88,7 @@ export const organizationSeed = [
     password: 'senha_resgate890',
   },
   {
+    id: 'fa6db70f-f256-49f4-946f-da5fcc2c777a',
     responsible_name: 'Patrícia Costa',
     email: 'patricia@email.com',
     name: 'Companheiros Fieis',
@@ -96,6 +103,7 @@ export const organizationSeed = [
     password: 'senha_fieis234',
   },
   {
+    id: '818cbdf8-cd8a-4ce2-bf55-bd7f343579d6',
     responsible_name: 'Gustavo Pereira',
     email: 'gustavo@email.com',
     name: 'Amor Pet',
@@ -110,6 +118,7 @@ export const organizationSeed = [
     password: 'senha_amorpet567',
   },
   {
+    id: 'ed22d228-cb52-4d17-8990-d3a13f01fe18',
     responsible_name: 'Lúcia Mendes',
     email: 'lucia@email.com',
     name: 'Anjos Peludos',
@@ -124,6 +133,7 @@ export const organizationSeed = [
     password: 'senha_anjospeludos678',
   },
   {
+    id: '36e1a0fd-efc1-4ae3-a815-37450f40f283',
     responsible_name: 'Anderson Silva',
     email: 'anderson@email.com',
     name: 'Família Pet',
