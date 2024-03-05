@@ -1,3 +1,4 @@
+import { InvalidCredentialsError } from '@/application/use-cases/organization/errors/invalid-credentials-error'
 import { makeAuthenticateOrganizationUseCase } from '@/infra/factories/make-authenticate-organization-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
@@ -33,7 +34,10 @@ export async function authenticateOrganization(
 
     reply.status(200).send({ token })
   } catch (err) {
-    console.log(err)
+    if (err instanceof InvalidCredentialsError) {
+      reply.status(400).send({ message: err.message })
+    }
+
     reply.status(500).send(err)
   }
 }

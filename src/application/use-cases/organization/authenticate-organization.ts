@@ -1,5 +1,5 @@
 import { IOrganizationRepository } from '@/application/repositories/organization.repository'
-import { CredentialsSentInvalid } from './errors/credentials-sent-invalid.errors'
+import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
 import * as bcrypt from 'bcrypt'
 
@@ -23,6 +23,6 @@ export class AuthenticateOrganizationUseCase {
       if (isPasswordValid) return { ...organization, password: undefined }
     }
 
-    throw new CredentialsSentInvalid()
+    throw new InvalidCredentialsError()
   }
 }

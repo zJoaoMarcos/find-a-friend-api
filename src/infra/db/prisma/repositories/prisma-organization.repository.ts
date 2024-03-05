@@ -47,4 +47,18 @@ export class PrismaOrganizationRepository implements IOrganizationRepository {
 
     return organization
   }
+
+  async findLocations(): Promise<{ city: string; state: string }[] | null> {
+    const locations = await this.prismaService.organization.findMany({
+      distinct: ['city', 'state'],
+      select: {
+        state: true,
+        city: true,
+      },
+    })
+
+    if (!locations) return null
+
+    return locations
+  }
 }
