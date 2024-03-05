@@ -37,3 +37,8 @@ Content-Type: application/json
     "state": "São Paulo",
     "zipCode": "09520250"
 }
+
+###
+# @name get-organizations-locations
+
+POST {{baseUrl}}/orgs/locations
