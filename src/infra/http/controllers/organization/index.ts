@@ -9,5 +9,5 @@ export async function organizationRoutes(app: FastifyInstance) {
   app.post('/', registerOrganization)
   app.post('/auth', authenticateOrganization)
   app.get('/me', { onRequest: [verifyJwt] }, ProfileOrganization)
-  app.post('/locations', getOrganizationsLocation)
+  app.get('/locations', getOrganizationsLocation)
 }

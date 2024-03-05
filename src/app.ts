@@ -3,8 +3,11 @@ import { routes } from './infra/http/controllers/routes'
 import { ZodError } from 'zod'
 import { env } from './env'
 import fastifyJwt from '@fastify/jwt'
+import fastifyCors from '@fastify/cors'
 
 export const app = fastify()
+
+app.register(fastifyCors, {})
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
