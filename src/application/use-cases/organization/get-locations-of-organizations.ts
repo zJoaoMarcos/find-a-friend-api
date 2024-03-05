@@ -9,6 +9,27 @@ export class GetLocationsOfOrganizationsUseCase {
 
     if (!locations) throw new LocationNotFoundError()
 
-    return locations
+    const nestedLocations: Array<{
+      name: string
+      cities: { name: string }[]
+    }> = []
+    locations.reduce((acc, currentValue) => {
+      const stateAlreadyExists = nestedLocations.find(
+        (item) => item.name === currentValue.state,
+      )
+
+      if (stateAlreadyExists) {
+        stateAlreadyExists.cities.push({ name: currentValue.city })
+      } else {
+        nestedLocations.push({
+          name: currentValue.state,
+          cities: [{ name: currentValue.city }],
+        })
+      }
+
+      return acc
+    }, [])
+
+    return nestedLocations
   }
 }

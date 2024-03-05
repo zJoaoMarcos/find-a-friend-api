@@ -41,4 +41,4 @@ Content-Type: application/json
 ###
 # @name get-organizations-locations
 
-POST {{baseUrl}}/orgs/locations
+GET {{baseUrl}}/orgs/locations
