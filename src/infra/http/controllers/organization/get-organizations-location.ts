@@ -10,10 +10,9 @@ export async function getOrganizationsLocation(
     const getOrganizationsLocationUseCase =
       makeGetLocationsOfOrganizationsUseCase()
 
-    const organizationsLocation =
-      await getOrganizationsLocationUseCase.execute()
+    const { locations } = await getOrganizationsLocationUseCase.execute()
 
-    reply.status(200).send({ organizationsLocation })
+    reply.status(200).send({ locations })
   } catch (err) {
     if (err instanceof LocationNotFoundError) {
       reply.status(409).send({ message: err.message })
