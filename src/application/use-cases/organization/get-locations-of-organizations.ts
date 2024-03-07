@@ -29,6 +29,6 @@ export class GetLocationsOfOrganizationsUseCase {
       [] as Array<{ name: string; cities: { name: string }[] }>,
     )
 
-    return nestedLocations
+    return { locations: nestedLocations }
   }
 }
