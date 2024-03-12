@@ -2,6 +2,7 @@ import { Pet, Prisma } from '@prisma/client'
 
 export interface IPetFindManyQuery {
   city: string
+  state: string
   name?: string
   age?: string
   size?: string

@@ -5,7 +5,9 @@ import { z } from 'zod'
 export async function fetchPets(request: FastifyRequest, reply: FastifyReply) {
   const fetchPetsQuerySchema = z.object({
     city: z.string(),
+    state: z.string(),
   })
+
   const fetchPetsParamsSchema = z.object({
     name: z.string().optional(),
     age: z.string().optional(),
@@ -20,7 +22,7 @@ export async function fetchPets(request: FastifyRequest, reply: FastifyReply) {
       .optional(),
   })
 
-  const { city } = fetchPetsQuerySchema.parse(request.query)
+  const { city, state } = fetchPetsQuerySchema.parse(request.query)
   const params = fetchPetsParamsSchema.parse(request.params)
 
   try {
@@ -28,6 +30,7 @@ export async function fetchPets(request: FastifyRequest, reply: FastifyReply) {
 
     const { pets, totalCount } = await fetchAllPetsUseCase.execute({
       city,
+      state,
       ...params,
     })
 

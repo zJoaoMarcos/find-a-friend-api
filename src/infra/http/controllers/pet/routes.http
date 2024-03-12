@@ -32,7 +32,7 @@ Authorization: Bearer {{authToken}}
 
 ###
 # @name fetch-pets-by-city
-GET {{baseUrl}}/pets/santo-andré
+GET {{baseUrl}}/pets/?city=S%C3%A3o%20Paulo&state=SP
 Content-Type: application/json
 
 ###
