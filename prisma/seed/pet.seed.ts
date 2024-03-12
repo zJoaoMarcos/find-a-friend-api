@@ -1,8 +1,8 @@
-import { randomUUID } from 'node:crypto'
+import { Pet } from '@prisma/client'
 
-export const petSeed = [
+export const petSeed: Pet[] = [
   {
-    id: randomUUID(),
+    id: 'a6d9872b-e601-4bed-abce-5898192d8932',
     name: 'Bella',
     about: 'Bella é uma cadelinha muito amigável e brincalhona.',
     age: '2 anos',
@@ -16,10 +16,10 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Pátio cercado', 'Passeios diários'],
     status: 'Disponível',
-    city: 'Cidade dos Animais',
+    organization_id: '0846dec1-6728-41c8-9e8f-c1b577604f16',
   },
   {
-    id: randomUUID(),
+    id: '85d4a3af-b4b2-46ae-bce6-876bcdd78479',
     name: 'Max',
     about: 'Max é um gatinho curioso e adora brincar com bolinhas de pelo.',
     age: '1 ano',
@@ -33,10 +33,10 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Arranhador', 'Brinquedos interativos'],
     status: 'Disponível',
-    city: 'Cidade dos Gatos',
+    organization_id: '0846dec1-6728-41c8-9e8f-c1b577604f16',
   },
   {
-    id: randomUUID(),
+    id: 'f728801d-f9ff-48fe-b451-18d27a6328d0',
     name: 'Luna',
     about: 'Luna é uma gatinha tranquila e adora cochilos ao sol.',
     age: '3 anos',
@@ -50,10 +50,10 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Janelas amplas', 'Cama confortável'],
     status: 'Disponível',
-    city: 'Cidade dos Gatos',
+    organization_id: '373612f0-f8f2-434c-b38d-41c9ffba8543',
   },
   {
-    id: randomUUID(),
+    id: '83e04d87-24c7-41ee-8442-506bb36c0512',
     name: 'Thor',
     about: 'Thor é um cachorro energético e adora correr no parque.',
     age: '1 ano e meio',
@@ -70,10 +70,10 @@ export const petSeed = [
       'Atividades físicas regulares',
     ],
     status: 'Disponível',
-    city: 'Cidade dos Cães',
+    organization_id: 'b97a1d4b-5907-449f-bb14-3c2a9f39efcf',
   },
   {
-    id: randomUUID(),
+    id: 'e54f286c-f5d9-4b89-a822-cd57e4b625c7',
     name: 'Mia',
     about: 'Mia é uma gatinha curiosa e adora explorar novos lugares.',
     age: '2 anos',
@@ -90,10 +90,10 @@ export const petSeed = [
       'Esconderijos confortáveis',
     ],
     status: 'Disponível',
-    city: 'Cidade dos Gatos',
+    organization_id: 'd0334ae9-98dd-4dd5-8e7e-41924e55d403',
   },
   {
-    id: randomUUID(),
+    id: '6c96df1b-9f6d-4216-a425-c48b68fd9738',
     name: 'Charlie',
     about: 'Charlie é um cachorro adorável que gosta de receber carinho.',
     age: '3 anos',
@@ -107,10 +107,10 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Tempo de qualidade', 'Passeios diários'],
     status: 'Disponível',
-    city: 'Cidade dos Cães',
+    organization_id: 'd0334ae9-98dd-4dd5-8e7e-41924e55d403',
   },
   {
-    id: randomUUID(),
+    id: 'd65afcc8-a55d-42af-80a3-4fc959a630cc',
     name: 'Lola',
     about:
       'Lola é uma cadelinha brincalhona que adora interagir com outros animais.',
@@ -128,10 +128,10 @@ export const petSeed = [
       'Espaço para correr',
     ],
     status: 'Disponível',
-    city: 'Cidade dos Animais',
+    organization_id: '36e1a0fd-efc1-4ae3-a815-37450f40f283',
   },
   {
-    id: randomUUID(),
+    id: '0e93a0cc-2561-44ff-a919-2a4a91c9e97a',
     name: 'Oliver',
     about: 'Oliver é um gatinho curioso e adora brincar com bolinhas de pelo.',
     age: '1 ano',
@@ -145,10 +145,10 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Brinquedos variados', 'Arranhador'],
     status: 'Disponível',
-    city: 'Cidade dos Gatos',
+    organization_id: '36e1a0fd-efc1-4ae3-a815-37450f40f283',
   },
   {
-    id: randomUUID(),
+    id: '426c2a68-1ad7-411e-b98a-21f2bba5c2e9',
     name: 'Sophie',
     about: 'Sophie é uma cadelinha adorável que gosta de passeios tranquilos.',
     age: '4 anos',
@@ -162,10 +162,10 @@ export const petSeed = [
     environment: 'Outdoor',
     requirements_for_adoption: ['Passeios diários', 'Área externa segura'],
     status: 'Disponível',
-    city: 'Cidade dos Cães',
+    organization_id: 'd083442f-9234-4511-978b-45d9d38efe2f',
   },
   {
-    id: randomUUID(),
+    id: 'ef80e231-57f7-41b3-8cf8-1227e5c568ae',
     name: 'Leo',
     about: 'Leo é um gatinho calmo que gosta de cochilar ao sol.',
     age: '3 anos',
@@ -179,6 +179,6 @@ export const petSeed = [
     environment: 'Indoor',
     requirements_for_adoption: ['Janelas amplas', 'Cama confortável'],
     status: 'Disponível',
-    city: 'Cidade dos Gatos',
+    organization_id: 'd0334ae9-98dd-4dd5-8e7e-41924e55d403',
   },
 ]

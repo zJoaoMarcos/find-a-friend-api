@@ -6,25 +6,30 @@ const prisma = new PrismaClient()
 
 async function main() {
   // Organizations
-  organizationSeed.forEach(async (org) => {
-    await prisma.organization.upsert({
-      where: { email: org.email },
-      update: {},
-      create: {
-        ...org,
-      },
-    })
-  })
 
-  /*   petSeed.forEach(async (pet) => {
-    await prisma.pet.upsert({
-      where: { id: pet.id },
-      update: {},
-      create: {
-        ...pet,
-      },
+  try {
+    organizationSeed.forEach(async (org) => {
+      await prisma.organization.upsert({
+        where: { email: org.email },
+        update: {},
+        create: {
+          ...org,
+        },
+      })
     })
-  }) */
+
+    petSeed.forEach(async (pet) => {
+      await prisma.pet.upsert({
+        where: { id: pet.id },
+        update: {},
+        create: {
+          ...pet,
+        },
+      })
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 main()
