@@ -25,14 +25,34 @@ export async function authenticateOrganization(
       password,
     })
 
-    const token = await reply.jwtSign(
+    const accessToken = await reply.jwtSign(
       {},
       {
-        sub: organization.id,
+        sign: {
+          sub: organization.id,
+        },
       },
     )
 
-    reply.status(200).send({ token })
+    const refreshToken = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: organization.id,
+          expiresIn: '7d',
+        },
+      },
+    )
+
+    reply
+      .status(200)
+      .setCookie('refreshToken', refreshToken, {
+        path: '/',
+        secure: true,
+        sameSite: true,
+        httpOnly: true,
+      })
+      .send({ accessToken, organization })
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {
       reply.status(400).send({ message: err.message })
