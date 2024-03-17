@@ -30,6 +30,7 @@ export async function authenticateOrganization(
       {
         sign: {
           sub: organization.id,
+          expiresIn: '10m',
         },
       },
     )

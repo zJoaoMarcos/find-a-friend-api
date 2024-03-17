@@ -12,7 +12,6 @@ app.register(fastifyCors)
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
-  sign: { expiresIn: '10m' },
   cookie: {
     cookieName: 'refreshToken',
     signed: false,
