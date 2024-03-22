@@ -2,6 +2,7 @@ import { InvalidCredentialsError } from '@/application/use-cases/organization/er
 import { makeAuthenticateOrganizationUseCase } from '@/infra/factories/make-authenticate-organization-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
+import { cookieValues } from '../../constants/cookie-values'
 
 export async function authenticateOrganization(
   request: FastifyRequest,
@@ -30,7 +31,7 @@ export async function authenticateOrganization(
       {
         sign: {
           sub: organization.id,
-          expiresIn: '10m',
+          expiresIn: '1s',
         },
       },
     )
@@ -47,7 +48,7 @@ export async function authenticateOrganization(
 
     reply
       .status(200)
-      .setCookie('refreshToken', refreshToken, {
+      .setCookie(cookieValues.refreshToken, refreshToken, {
         path: '/',
         secure: true,
         sameSite: true,

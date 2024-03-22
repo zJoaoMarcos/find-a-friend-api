@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:3333
 
-@authToken = {{authenticate.response.body.token}}
+@authToken = {{authenticate.response.body.accessToken}}
 
 ###
 # @name authenticate
@@ -8,8 +8,8 @@ POST {{baseUrl}}/orgs/auth
 Content-Type: application/json
 
 {
-    "email": "jonas@email.com",
-    "password": "Patr4318*"
+    "email": "joao@email.com",
+    "password": "123456"
 }
 
 ###

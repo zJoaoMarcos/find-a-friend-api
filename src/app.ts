@@ -8,7 +8,11 @@ import fastifyCookie from '@fastify/cookie'
 
 export const app = fastify()
 
-app.register(fastifyCors)
+app.register(fastifyCors, {
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true,
+})
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
