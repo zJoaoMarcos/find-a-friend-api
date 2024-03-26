@@ -12,7 +12,7 @@ export async function refreshOrganization(
       {
         sign: {
           sub: request.user.sub,
-          expiresIn: '1s',
+          expiresIn: '15m',
         },
       },
     )
