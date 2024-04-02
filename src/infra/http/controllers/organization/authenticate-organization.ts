@@ -31,7 +31,7 @@ export async function authenticateOrganization(
       {
         sign: {
           sub: organization.id,
-          expiresIn: '1s',
+          expiresIn: '10m',
         },
       },
     )
